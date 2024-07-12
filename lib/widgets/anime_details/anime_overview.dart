@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:anilist/Theme/app_colors.dart';
 
 class AnimeOverview extends StatelessWidget {
@@ -32,7 +31,9 @@ class AnimeOverview extends StatelessWidget {
                             'Average Score: 80%',
                             style: TextStyle(fontSize: 16),
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Text(
                             'Mean Score: 81%',
                             style: TextStyle(fontSize: 16),
@@ -50,4 +51,3 @@ class AnimeOverview extends StatelessWidget {
     );
   }
 }
-

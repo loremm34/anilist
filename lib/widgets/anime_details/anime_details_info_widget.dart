@@ -29,11 +29,11 @@ class _AnimeDetailsInfoWidgetState extends State<AnimeDetailsInfoWidget> {
       future: _animeDetails,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData) {
-          return Center(child: Text('No anime details found'));
+          return const Center(child: Text('No anime details found'));
         } else {
           final anime = snapshot.data!;
           return Column(
@@ -44,7 +44,7 @@ class _AnimeDetailsInfoWidgetState extends State<AnimeDetailsInfoWidget> {
                 subImage: anime.coverImage,
               ),
               _AnimeNameWidget(title: anime.title),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               AnimeOverview(),
@@ -72,8 +72,11 @@ class _AnimePostersWidget extends StatelessWidget {
   final String coverImage;
   final String subImage;
 
-  const _AnimePostersWidget(
-      {required this.coverImage, required this.subImage, super.key});
+  const _AnimePostersWidget({
+    super.key,
+    required this.coverImage,
+    required this.subImage,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +89,7 @@ class _AnimePostersWidget extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         Padding(
-          padding: EdgeInsets.only(top: 130, left: 20),
+          padding: const EdgeInsets.only(top: 130, left: 20),
           child: Image.network(
             subImage,
             width: 100,
@@ -107,15 +110,15 @@ class _AnimeNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20, top: 50, right: 200),
+      padding: const EdgeInsets.only(left: 20, top: 50, right: 200),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Text("Overview"),
+          const Text("Overview"),
         ],
       ),
     );

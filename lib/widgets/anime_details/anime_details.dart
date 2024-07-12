@@ -16,10 +16,10 @@ class _AnimeDetailsState extends State<AnimeDetails> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 6, 12, 19),
       appBar: AppBar(
-        title: Text(""),
+        title: const Text(""),
       ),
       body: ListView(
-        children: [
+        children: const [
           AnimeDetailsInfoWidget(),
         ],
       ),

@@ -66,7 +66,6 @@ class Staff {
   final String image;
   final String role;
 
-
   Staff({
     required this.name,
     required this.image,
@@ -74,14 +73,14 @@ class Staff {
   });
 }
 
-Future<List<Anime>> fetchAnimeList({page = 1, perPage = 20, String searchQuery = ''}) async {
-  final GraphQLClient _client = GraphQLClient(
+Future<List<Anime>> fetchAnimeList(
+    {page = 1, perPage = 20, String searchQuery = ''}) async {
+  final GraphQLClient client = GraphQLClient(
     cache: GraphQLCache(),
     link: HttpLink('https://graphql.anilist.co/'),
   );
 
-  final QueryOptions options = QueryOptions(
-    document: gql('''
+  final QueryOptions options = QueryOptions(document: gql('''
       query (\$page: Int, \$perPage: Int) {
         Page(page: \$page, perPage:\$perPage) {
           media {
@@ -96,11 +95,9 @@ Future<List<Anime>> fetchAnimeList({page = 1, perPage = 20, String searchQuery =
           }
         }
       }
-    '''), 
-    variables: {'page': page, 'perPage': perPage, 'search': searchQuery}
-  );
+    '''), variables: {'page': page, 'perPage': perPage, 'search': searchQuery});
 
-  final QueryResult result = await _client.query(options);
+  final QueryResult result = await client.query(options);
 
   if (result.hasException) {
     throw Exception('Failed to load anime list');
@@ -119,7 +116,7 @@ Future<List<Anime>> fetchAnimeList({page = 1, perPage = 20, String searchQuery =
 }
 
 Future<AnimeDetailsModel> fetchAnimeDetails(int id) async {
-  final GraphQLClient _client = GraphQLClient(
+  final GraphQLClient client = GraphQLClient(
     cache: GraphQLCache(),
     link: HttpLink('https://graphql.anilist.co/'),
   );
@@ -191,7 +188,7 @@ Future<AnimeDetailsModel> fetchAnimeDetails(int id) async {
     variables: {'id': id},
   );
 
-  final QueryResult result = await _client.query(options);
+  final QueryResult result = await client.query(options);
 
   if (result.hasException) {
     throw Exception('Failed to load anime details');
@@ -201,7 +198,7 @@ Future<AnimeDetailsModel> fetchAnimeDetails(int id) async {
   final unescape = HtmlUnescape();
   final cleanDescription = unescape.convert(data['description'] ?? '');
 
-   final List<Staff> staff = (data['staff']['edges'] as List).map((staff) {
+  final List<Staff> staff = (data['staff']['edges'] as List).map((staff) {
     return Staff(
       name: staff['node']['name']['full'] ?? 'Unknown',
       image: staff['node']['image']['large'] ?? '',

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:anilist/widgets/manga_details/manga_details_info_widget.dart';
 
-
 class MangaDetails extends StatefulWidget {
   const MangaDetails({super.key, required this.mangaID});
 
@@ -17,10 +16,10 @@ class _MangaDetailsState extends State<MangaDetails> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 6, 12, 19),
       appBar: AppBar(
-        title: Text("Death Note"),
+        title: Text(""),
       ),
       body: ListView(
-        children: [
+        children: const [
           MangaDetailsInfoWidget(),
         ],
       ),

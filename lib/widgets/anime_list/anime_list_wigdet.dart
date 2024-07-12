@@ -10,7 +10,7 @@ class AnimeListWidget extends StatefulWidget {
 }
 
 class _AnimeListWidgetState extends State<AnimeListWidget> {
-  List<Anime> _animeList = [];
+  final List<Anime> _animeList = [];
   int _currentPage = 1;
   bool _isLoading = false;
   bool _hasMore = true;
@@ -46,7 +46,6 @@ class _AnimeListWidgetState extends State<AnimeListWidget> {
         }
       });
     } catch (e) {
-      print("Failed to load more anime: $e");
     } finally {
       setState(() {
         _isLoading = false;
@@ -87,7 +86,7 @@ class _AnimeListWidgetState extends State<AnimeListWidget> {
             itemCount: _animeList.length + (_hasMore ? 1 : 0),
             itemBuilder: (BuildContext context, int index) {
               if (index == _animeList.length) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
               final anime = _animeList[index];
               return Container(
@@ -140,7 +139,7 @@ class _AnimeListWidgetState extends State<AnimeListWidget> {
               fillColor: AppColors.inputColor.withAlpha(230),
               border: InputBorder.none,
               suffixIcon: IconButton(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 onPressed: () {
                   setState(
                     () {

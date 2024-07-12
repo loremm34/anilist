@@ -70,7 +70,7 @@ class Staff {
 }
 
 Future<List<Manga>> fetchMangaList() async {
-  final GraphQLClient _client = GraphQLClient(
+  final GraphQLClient client = GraphQLClient(
     cache: GraphQLCache(),
     link: HttpLink('https://graphql.anilist.co/'),
   );
@@ -94,10 +94,9 @@ Future<List<Manga>> fetchMangaList() async {
     '''),
   );
 
-  final QueryResult result = await _client.query(options);
+  final QueryResult result = await client.query(options);
 
   if (result.hasException) {
-    print(result.exception.toString());
     throw Exception('Failed to load manga list');
   }
 
@@ -114,7 +113,7 @@ Future<List<Manga>> fetchMangaList() async {
 }
 
 Future<MangaDetailsModel> fetchMangaDetails(int id) async {
-  final GraphQLClient _client = GraphQLClient(
+  final GraphQLClient client = GraphQLClient(
     cache: GraphQLCache(),
     link: HttpLink('https://graphql.anilist.co/'),
   );
@@ -178,18 +177,9 @@ Future<MangaDetailsModel> fetchMangaDetails(int id) async {
     variables: {'id': id},
   );
 
-  final QueryResult result = await _client.query(options);
+  final QueryResult result = await client.query(options);
 
   if (result.hasException) {
-    print(result.exception.toString());
-    if (result.exception!.graphqlErrors.isNotEmpty) {
-      for (var error in result.exception!.graphqlErrors) {
-        print('GraphQL Error: ${error.message}');
-      }
-    }
-    if (result.exception!.linkException != null) {
-      print('Link Exception: ${result.exception!.linkException.toString()}');
-    }
     throw Exception('Failed to load manga details');
   }
 

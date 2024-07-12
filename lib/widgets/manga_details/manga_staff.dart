@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
 import 'package:anilist/models/manga_model.dart';
-
 
 class MangaStaff extends StatelessWidget {
   const MangaStaff({super.key, required this.staff});
@@ -23,10 +21,9 @@ class MangaStaff extends StatelessWidget {
             fit: FlexFit.loose,
             child: ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: staff.length,
               itemBuilder: (context, index) {
-
                 final mangaStaff = staff[index];
                 return Container(
                   margin: const EdgeInsets.only(bottom: 8.0),
@@ -35,9 +32,7 @@ class MangaStaff extends StatelessWidget {
                   child: Row(
                     children: [
                       SizedBox(
-                        height: 82.3,
-                        child: Image.network(mangaStaff.image)
-                      ),
+                          height: 82.3, child: Image.network(mangaStaff.image)),
                       const SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColors.mainDarkBlue,
-        
       ),
       debugShowCheckedModeBanner: false,
       routes: {
@@ -27,19 +26,22 @@ class MyApp extends StatelessWidget {
         '/registration_widget': (context) => RegistrationWidget(),
         '/main_screen/manga_details': (context) {
           final arguments = ModalRoute.of(context)?.settings.arguments;
-          if(arguments is int) {
+          if (arguments is int) {
             return MangaDetails(mangaID: arguments);
           } else {
-            return MangaDetails(mangaID: 0,);
+            return MangaDetails(
+              mangaID: 0,
+            );
           }
-        }, 
-        
+        },
         '/main_screen/anime_details': (context) {
           final arguments = ModalRoute.of(context)?.settings.arguments;
-          if(arguments is int) {
+          if (arguments is int) {
             return AnimeDetails(animeID: arguments);
           } else {
-            return AnimeDetails(animeID: 0,);
+            return AnimeDetails(
+              animeID: 0,
+            );
           }
         }
       },

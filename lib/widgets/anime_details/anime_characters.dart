@@ -21,7 +21,7 @@ class AnimeCharacters extends StatelessWidget {
             fit: FlexFit.loose,
             child: ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: characters.length,
               itemBuilder: (context, index) {
                 final character = characters[index];
@@ -51,7 +51,7 @@ class AnimeCharacters extends StatelessWidget {
                               character.name,
                               overflow: TextOverflow.visible,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             )
                           ],
@@ -64,7 +64,7 @@ class AnimeCharacters extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             ),
                             Text(

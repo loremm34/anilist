@@ -30,7 +30,7 @@ class _MainScreenWidget extends State<MainScreenWidget> {
         children: [
           AnimeListWidget(),
           MangaListWidget(),
-          Text("Профиль"),
+          Text("Избранное"),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -40,10 +40,10 @@ class _MainScreenWidget extends State<MainScreenWidget> {
         selectedItemColor: Colors.white,
         selectedFontSize: 10,
         unselectedFontSize: 10,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.movie), label: "Аниме"),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: "Манга"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Профиль"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Избранное"),
         ],
       ),
     );

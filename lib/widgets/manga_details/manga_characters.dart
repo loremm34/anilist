@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
 import 'package:anilist/models/manga_model.dart';
@@ -22,7 +21,7 @@ class MangaCharacters extends StatelessWidget {
             fit: FlexFit.loose,
             child: ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: 6,
               itemBuilder: (context, index) {
                 final character = characters[index];
@@ -34,10 +33,8 @@ class MangaCharacters extends StatelessWidget {
                   child: Row(
                     children: [
                       SizedBox(
-                        height: 82.3,
-                        child: Image.network(character.image)
-                      ),
-                      SizedBox(width: 8),
+                          height: 82.3, child: Image.network(character.image)),
+                      const SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
