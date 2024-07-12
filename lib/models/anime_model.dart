@@ -42,6 +42,10 @@ class AnimeDetailsModel {
   final String coverImage;
   final String bannerImage;
   final String description;
+  final String status;
+  final String season;
+  final int duration;
+  final int episodes;
   final List<Character> characters;
   final List<Relation> relations;
   final List<Staff> staff;
@@ -51,6 +55,10 @@ class AnimeDetailsModel {
     required this.title,
     required this.coverImage,
     required this.bannerImage,
+    required this.status,
+    required this.season,
+    required this.duration,
+    required this.episodes,
     required this.description,
     required this.characters,
     required this.relations,

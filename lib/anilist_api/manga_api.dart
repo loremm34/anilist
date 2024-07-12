@@ -1,4 +1,4 @@
-import 'package:graphql/client.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:anilist/models/manga_model.dart';
 

@@ -16,6 +16,9 @@ class AnimeDetailsInfoWidget extends StatefulWidget {
 
 class _AnimeDetailsInfoWidgetState extends State<AnimeDetailsInfoWidget> {
   late Future<AnimeDetailsModel> _animeDetails;
+  late TextStyle styledText = TextStyle(
+    fontSize: 16,
+  );
 
   @override
   void didChangeDependencies() {
@@ -48,7 +51,26 @@ class _AnimeDetailsInfoWidgetState extends State<AnimeDetailsInfoWidget> {
               const SizedBox(
                 height: 10,
               ),
-              AnimeOverview(),
+              AnimeOverview(
+                overview: [
+                  Text(
+                    'Статус аниме: ${anime.status}',
+                    style: styledText,
+                  ),
+                  Text(
+                    'Аниме сезон: ${anime.season.toLowerCase()}',
+                    style: styledText,
+                  ),
+                  Text(
+                    'Количество эпизодов: ${anime.episodes.toString()}',
+                    style: styledText,
+                  ),
+                  Text(
+                    'Длительность просмотра ${anime.duration.toString()}',
+                    style: styledText,
+                  ),
+                ],
+              ),
               AnimeDescription(
                 description: anime.description,
               ),

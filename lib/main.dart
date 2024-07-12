@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           if (arguments is int) {
             return AnimeDetails(animeID: arguments);
           } else {
-            return AnimeDetails(
+            return const AnimeDetails(
               animeID: 0,
             );
           }

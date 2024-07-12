@@ -23,7 +23,7 @@ class AnimeRelations extends StatelessWidget {
               height: 115,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: relations.length,
                 itemBuilder: (context, index) {
                   final relation = relations[index];
                   return Padding(
@@ -34,7 +34,7 @@ class AnimeRelations extends StatelessWidget {
                         children: [
                           Image.network(relation.image),
                           Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 right: 60, left: 10, top: 5, bottom: 5),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

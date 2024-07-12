@@ -1,6 +1,6 @@
-import 'package:graphql/client.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:anilist/models/anime_model.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 Future<List<Anime>> fetchAnimeList(
     {page = 1, perPage = 20, String searchQuery = ''}) async {
@@ -64,6 +64,10 @@ Future<AnimeDetailsModel> fetchAnimeDetails(int id) async {
           }
           bannerImage
           description
+          season
+          status
+          duration
+          episodes
           characters {
             edges {
               node {
@@ -166,6 +170,10 @@ Future<AnimeDetailsModel> fetchAnimeDetails(int id) async {
     coverImage: data['coverImage']['large'] ?? '',
     bannerImage: data['bannerImage'] ?? '',
     description: cleanDescription,
+    status: data['status'] ?? 'Unknown',
+    season: data['season'] ?? 'Unknown',
+    duration: data['duration'] ?? 'Unknown',
+    episodes: data['episodes'] ?? 'Unknown',
     characters: characters,
     relations: relations,
     staff: staff,
