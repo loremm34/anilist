@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
-import 'package:anilist/resources/resources.dart';
 import 'package:anilist/models/manga_model.dart';
 
 class MangaRelations extends StatelessWidget {
@@ -35,13 +34,20 @@ class MangaRelations extends StatelessWidget {
                         children: [
                           Image.network(relation.image),
                           Padding(
-                            padding: EdgeInsets.only(right: 60, left: 10, top: 5, bottom: 5),
+                            padding: EdgeInsets.only(
+                                right: 60, left: 10, top: 5, bottom: 5),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(relation.type, maxLines: 1,),
-                                Text(relation.title, maxLines: 2,),
+                                Text(
+                                  relation.type,
+                                  maxLines: 1,
+                                ),
+                                Text(
+                                  relation.title,
+                                  maxLines: 2,
+                                ),
                               ],
                             ),
                           )

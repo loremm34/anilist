@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:anilist/models/manga_model.dart';
+import 'package:anilist/anilist_api/manga_api.dart';
 import 'package:anilist/widgets/manga_details/manga_overview.dart';
 import 'package:anilist/widgets/manga_details/manga_description.dart';
 import 'package:anilist/widgets/manga_details/manga_characters.dart';
 import 'package:anilist/widgets/manga_details/manga_relations.dart';
 import 'package:anilist/widgets/manga_details/manga_staff.dart';
+import 'package:anilist/models/manga_model.dart';
 
 class MangaDetailsInfoWidget extends StatefulWidget {
   const MangaDetailsInfoWidget({super.key});

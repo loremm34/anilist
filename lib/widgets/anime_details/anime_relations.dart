@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
-import 'package:anilist/resources/resources.dart';
 import 'package:anilist/models/anime_model.dart';
 
 class AnimeRelations extends StatelessWidget {
   const AnimeRelations({super.key, required this.relations});
 
-
   final List<Relation> relations;
-  
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 9.0),
-          child: const Text("Relations"),
+        const Padding(
+          padding: EdgeInsets.only(left: 9.0),
+          child: Text("Relations"),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -35,17 +32,22 @@ class AnimeRelations extends StatelessWidget {
                       color: AppColors.mainDarkBlue,
                       child: Row(
                         children: [
-                          Image.network(
-                            relation.image
-                          ),
+                          Image.network(relation.image),
                           Padding(
-                            padding: EdgeInsets.only(right: 60, left: 10, top: 5, bottom: 5),
+                            padding: EdgeInsets.only(
+                                right: 60, left: 10, top: 5, bottom: 5),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(relation.type, maxLines: 1,),
-                                Text(relation.title, maxLines: 2,),
+                                Text(
+                                  relation.type,
+                                  maxLines: 1,
+                                ),
+                                Text(
+                                  relation.title,
+                                  maxLines: 2,
+                                ),
                               ],
                             ),
                           )

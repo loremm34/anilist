@@ -1,11 +1,9 @@
-import 'package:anilist/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
 import 'package:anilist/models/anime_model.dart';
 
 class AnimeStaff extends StatelessWidget {
   const AnimeStaff({super.key, required this.staff});
-
 
   final List<Staff> staff;
 
@@ -36,9 +34,7 @@ class AnimeStaff extends StatelessWidget {
                     children: [
                       SizedBox(
                         height: 82.3,
-                        child: Image.network(
-                          animeStaff.image
-                        ),
+                        child: Image.network(animeStaff.image),
                       ),
                       const SizedBox(width: 8),
                       Column(

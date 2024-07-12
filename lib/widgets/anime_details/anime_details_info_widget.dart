@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:anilist/models/anime_model.dart';
+import 'package:anilist/anilist_api/anime_api.dart';
 import 'package:anilist/widgets/anime_details/anime_overview.dart';
 import 'package:anilist/widgets/anime_details/anime_description.dart';
 import 'package:anilist/widgets/anime_details/anime_characters.dart';
 import 'package:anilist/widgets/anime_details/anime_relations.dart';
 import 'package:anilist/widgets/anime_details/anime_staff.dart';
+import 'package:anilist/models/anime_model.dart';
 
 class AnimeDetailsInfoWidget extends StatefulWidget {
   const AnimeDetailsInfoWidget({super.key});

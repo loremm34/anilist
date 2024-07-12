@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:anilist/Theme/app_colors.dart';
 import 'package:flutter/widgets.dart';
-import 'package:anilist/models/anime_model.dart';
+import 'package:anilist/anilist_api/anime_api.dart';
 
 class AnimeDescription extends StatelessWidget {
-  const AnimeDescription({super.key, required this.description });
+  const AnimeDescription({super.key, required this.description});
 
   final String description;
 

@@ -1,5 +1,6 @@
 import 'package:anilist/Theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:anilist/anilist_api/manga_api.dart';
 import 'package:anilist/models/manga_model.dart';
 
 class MangaListWidget extends StatefulWidget {
