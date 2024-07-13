@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           if (arguments is int) {
             return MangaDetails(mangaID: arguments);
           } else {
-            return const MangaDetails(
+            return MangaDetails(
               mangaID: 0,
             );
           }

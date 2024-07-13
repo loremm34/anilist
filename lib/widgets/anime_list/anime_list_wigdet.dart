@@ -78,9 +78,11 @@ class _AnimeListWidgetState extends State<AnimeListWidget> {
             return true;
           },
           child: GridView.builder(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            padding: const EdgeInsets.only(top: 55),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 3,
+              crossAxisSpacing: 0.0,
               mainAxisSpacing: 10,
               childAspectRatio: 0.6,
             ),
@@ -103,13 +105,11 @@ class _AnimeListWidgetState extends State<AnimeListWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.network(
                               anime.coverImage,
-                              width: 160,
-                              height: 260,
                             ),
                           ),
                         ),

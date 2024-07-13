@@ -8,7 +8,9 @@ import 'package:anilist/widgets/manga_details/manga_staff.dart';
 import 'package:anilist/models/manga_model.dart';
 
 class MangaDetailsInfoWidget extends StatefulWidget {
-  const MangaDetailsInfoWidget({super.key});
+  const MangaDetailsInfoWidget({super.key, required this.manga});
+
+  final MangaDetailsModel manga;
 
   @override
   _MangaDetailsInfoWidgetState createState() => _MangaDetailsInfoWidgetState();
@@ -20,8 +22,15 @@ class _MangaDetailsInfoWidgetState extends State<MangaDetailsInfoWidget> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final int mangaID = ModalRoute.of(context)!.settings.arguments as int;
-    _mangaDetails = fetchMangaDetails(mangaID);
+    final route = ModalRoute.of(context);
+    if (route != null && route.settings.arguments != null) {
+      final int mangaID = route.settings.arguments as int;
+      _mangaDetails = fetchMangaDetails(mangaID);
+    } else {
+      setState(() {
+        _mangaDetails = Future.error('No manga ID provided');
+      });
+    }
   }
 
   @override

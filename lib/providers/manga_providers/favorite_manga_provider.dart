@@ -4,7 +4,7 @@ import 'package:anilist/models/manga_model.dart';
 class FavoriteMangaProvider extends StateNotifier<List<MangaDetailsModel>> {
   FavoriteMangaProvider() : super([]);
 
-  bool toogleFavoriteManga(MangaDetailsModel manga) {
+  bool toggleFavoriteManga(MangaDetailsModel manga) {
     final isFavorite = state.contains(manga);
 
     if (isFavorite) {
@@ -16,3 +16,8 @@ class FavoriteMangaProvider extends StateNotifier<List<MangaDetailsModel>> {
     }
   }
 }
+
+final favoriteMangaProvider =
+    StateNotifierProvider<FavoriteMangaProvider, List<MangaDetailsModel>>(
+  (ref) => FavoriteMangaProvider(),
+);

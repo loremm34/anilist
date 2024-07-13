@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:anilist/providers/anime_providers/favorite_anime_provider.dart';
+import 'package:anilist/providers/manga_providers/favorite_manga_provider.dart';
 import 'package:anilist/Theme/app_colors.dart';
 
-class FavoriteAnimeWidget extends ConsumerWidget {
-  const FavoriteAnimeWidget({super.key});
+class FavoriteMangaWidget extends ConsumerWidget {
+  const FavoriteMangaWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final favoriteAnime = ref.watch(favoriteAnimeProvider);
+    final favoriteManga = ref.watch(favoriteMangaProvider);
 
-    if (favoriteAnime.isEmpty) {
+    if (favoriteManga.isEmpty) {
       return const Center(
         child: Text(
-          'Нет избранных аниме',
+          'Нет избранной манги',
           style: TextStyle(color: Colors.white),
         ),
       );
@@ -26,9 +26,9 @@ class FavoriteAnimeWidget extends ConsumerWidget {
         mainAxisSpacing: 10,
         childAspectRatio: 0.6,
       ),
-      itemCount: favoriteAnime.length,
+      itemCount: favoriteManga.length,
       itemBuilder: (BuildContext context, int index) {
-        final anime = favoriteAnime[index];
+        final manga = favoriteManga[index];
         return Container(
           decoration: BoxDecoration(
             color: AppColors.mainDarkBlue,
@@ -37,8 +37,8 @@ class FavoriteAnimeWidget extends ConsumerWidget {
           child: InkWell(
             onTap: () {
               Navigator.of(context).pushNamed(
-                "/main_screen/anime_details",
-                arguments: anime.id,
+                "/main_screen/manga_details",
+                arguments: manga.id,
               );
             },
             child: Padding(
@@ -51,7 +51,7 @@ class FavoriteAnimeWidget extends ConsumerWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        anime.coverImage,
+                        manga.coverImage,
                         width: 160,
                         height: 260,
                       ),
@@ -60,7 +60,7 @@ class FavoriteAnimeWidget extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 5, bottom: 6),
                     child: Text(
-                      anime.title,
+                      manga.title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(color: Colors.white),
