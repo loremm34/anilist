@@ -16,7 +16,7 @@ class _MangaDetailsState extends State<MangaDetails> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 6, 12, 19),
       appBar: AppBar(
-        title: Text(""),
+        title: const Text(""),
       ),
       body: ListView(
         children: const [

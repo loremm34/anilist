@@ -1,4 +1,3 @@
-import "package:anilist/widgets/auth/auth_widget.dart";
 import "package:flutter/material.dart";
 
 class RegistrationWidget extends StatefulWidget {

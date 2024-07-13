@@ -1,5 +1,3 @@
-import 'package:anilist/widgets/main_screen/main_screen_widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
 
@@ -62,7 +60,7 @@ class FormWidget extends StatefulWidget {
 class _FormWigdet extends State<FormWidget> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  String? errorText = null;
+  String? errorText;
 
   void _auth() {
     final email = _emailController.text;

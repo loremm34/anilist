@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:anilist/Theme/app_colors.dart';
-import 'package:anilist/anilist_api/anime_api.dart';
 import 'package:anilist/models/anime_model.dart';
 
 class AnimeCharacters extends StatelessWidget {

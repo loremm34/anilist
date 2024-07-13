@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   html_unescape: ^2.0.0
   graphql_flutter: ^5.1.2
+  flutter_riverpod: ^2.5.1
 
 dev_dependencies:
   flutter_test:

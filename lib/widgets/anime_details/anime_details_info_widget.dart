@@ -8,15 +8,16 @@ import 'package:anilist/widgets/anime_details/anime_staff.dart';
 import 'package:anilist/models/anime_model.dart';
 
 class AnimeDetailsInfoWidget extends StatefulWidget {
-  const AnimeDetailsInfoWidget({super.key});
+  const AnimeDetailsInfoWidget({super.key, required this.anime});
 
+  final AnimeDetailsModel anime;
   @override
   _AnimeDetailsInfoWidgetState createState() => _AnimeDetailsInfoWidgetState();
 }
 
 class _AnimeDetailsInfoWidgetState extends State<AnimeDetailsInfoWidget> {
   late Future<AnimeDetailsModel> _animeDetails;
-  late TextStyle styledText = TextStyle(
+  late TextStyle styledText = const TextStyle(
     fontSize: 16,
   );
 

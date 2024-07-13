@@ -45,10 +45,10 @@ class _MangaDetailsInfoWidgetState extends State<MangaDetailsInfoWidget> {
                 subImage: anime.coverImage,
               ),
               _AnimeNameWidget(title: anime.title),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              MangaOverview(),
+              // MangaOverview(),
               MangaDescription(
                 description: anime.description,
               ),

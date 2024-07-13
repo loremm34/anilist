@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:anilist/widgets/anime_list/anime_list_wigdet.dart';
 import 'package:anilist/widgets/manga_list/manga_list_widget.dart';
+import 'package:anilist/widgets/anime_details/favorite_anime.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -30,7 +31,8 @@ class _MainScreenWidget extends State<MainScreenWidget> {
         children: [
           AnimeListWidget(),
           MangaListWidget(),
-          Text("Избранное"),
+          FavoriteAnimeWidget(),
+          FavoriteAnimeWidget(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -43,7 +45,9 @@ class _MainScreenWidget extends State<MainScreenWidget> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.movie), label: "Аниме"),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: "Манга"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Избранное"),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Избранное"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark), label: "Избранное"),
         ],
       ),
     );
